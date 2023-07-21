@@ -18,6 +18,6 @@ I built a feature-rich full-stack course selling website using the MERN stack (N
 
 Note: The payment system and uploading of course content are still not in place.
 
-## Demo video: https://clipchamp.com/watch/rq6h6gvU7rK
+##### Demo video: https://clipchamp.com/watch/rq6h6gvU7rK
 
 
