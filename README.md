@@ -11,10 +11,10 @@ I built a feature-rich full-stack course selling website using the MERN stack (N
     ❌ DELETE courses
 
 ## User Dashboard
-1️. The user side of the course selling app.
-2️. Users can conveniently log in or register a new account.
-3️. Users get access to a wide range of courses to explore and learn from.
-4️. Users can seamlessly purchase their preferred courses! 💡
+1. The user side of the course-selling app
+2. Users can conveniently log in or register a new account.
+3. Users get access to a wide range of courses to explore and learn from.
+4. Users can seamlessly purchase their preferred courses! 💡
 
 Note: The payment system and uploading of course content are still not in place.
 
