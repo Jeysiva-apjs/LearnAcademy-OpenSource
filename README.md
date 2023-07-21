@@ -16,4 +16,4 @@ A MERN full-stack course selling app.
 3. Users can view courses.
 4. Users can purchase courses.
 
-Demo video -> https://clipchamp.com/watch/xrKN5yRsNwW
+Demo video: https://clipchamp.com/watch/rq6h6gvU7rK
