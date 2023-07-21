@@ -1,19 +1,22 @@
 # LearnAcademy
 
-A MERN full-stack course selling app. 
+I built a feature-rich full-stack course selling website using the MERN stack (Node.js, Express.js, MongoDB, and React).
 
 ## Admin Dashboard
-1. The admin side of the course selling app
-2. Admins can log in or register a new account.
-3. All the admins can
-   CREATE course
-   UPDATE course
-   DELETE course
+1️⃣ The admin side of the course selling app.
+2️⃣ Admins can effortlessly log in or register a new account.
+3️⃣ All admins have the power to:
+   ✅ CREATE courses
+   ✏️ UPDATE courses
+   ❌ DELETE courses
 
 ## User Dashboard
-1. User side of the course selling app
-2. Users can log in or register a new account.
-3. Users can view courses.
-4. Users can purchase courses.
+1️⃣ The user side of the course selling app.
+2️⃣ Users can conveniently log in or register a new account.
+3️⃣ Users get access to a wide range of courses to explore and learn from.
+4️⃣ Users can seamlessly purchase their preferred courses! 💡
+Note: The payment system and uploading of course content are still not in place.
 
 Demo video: https://clipchamp.com/watch/rq6h6gvU7rK
+
+
