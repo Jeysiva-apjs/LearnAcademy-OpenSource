@@ -3,7 +3,7 @@
 A MERN full-stack course selling app. 
 
 ## Admin Dashboard
-1. Admin side of the course selling app
+1. The admin side of the course selling app
 2. Admins can log in or register a new account.
 3. All the admins can
    CREATE course
