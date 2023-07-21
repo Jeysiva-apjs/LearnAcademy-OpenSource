@@ -16,8 +16,8 @@ I built a feature-rich full-stack course selling website using the MERN stack (N
 3️⃣. Users get access to a wide range of courses to explore and learn from.
 4️⃣. Users can seamlessly purchase their preferred courses! 💡
 
-##### Note: The payment system and uploading of course content are still not in place.
+Note: The payment system and uploading of course content are still not in place.
 
-### Demo video: https://clipchamp.com/watch/rq6h6gvU7rK
+## Demo video: https://clipchamp.com/watch/rq6h6gvU7rK
 
 
