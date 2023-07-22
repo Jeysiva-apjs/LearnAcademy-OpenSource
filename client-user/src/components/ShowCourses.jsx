@@ -19,10 +19,6 @@ function ShowCourses() {
   const navigate = useNavigate();
   const [courses, setCourses] = useRecoilState(coursesState);
   const [open] = useRecoilState(openState);
-
-  // Add code to fetch courses from the server
-  // and set it in the courses state variable.
-
   useEffect(() => {
     axios
       .get("http://localhost:3000/users/courses/", {
@@ -55,9 +51,11 @@ function ShowCourses() {
         All Courses
       </Typography>
       <div className="all-courses">
-        {courses.map((course) => (
-          <CourseCard key={course._id} course={course} />
-        ))}
+        {courses.length > 0
+          ? courses.map((course) => (
+              <CourseCard key={course._id} course={course} />
+            ))
+          : "Oops! No course is currently offered. Return later!"}
       </div>
     </Main>
   );

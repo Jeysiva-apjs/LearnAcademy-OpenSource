@@ -48,9 +48,11 @@ function ShowCourses() {
         Courses
       </Typography>
       <div className="all-courses">
-        {courses.map((course) => (
-          <CourseCard key={course._id} course={course} />
-        ))}
+        {courses.length > 0
+          ? courses.map((course) => (
+              <CourseCard key={course._id} course={course} />
+            ))
+          : "Oops! Courses are still not available. Make a new course so that it can be accessed. "}
       </div>
     </Main>
   );

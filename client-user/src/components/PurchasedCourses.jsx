@@ -43,9 +43,11 @@ function PurchasedCourses() {
         Purchased Courses
       </Typography>
       <div className="all-courses">
-        {purCourses.map((course) => (
-          <CourseCard key={course._id} course={course} isPurchased={true} />
-        ))}
+        {purCourses.length > 0
+          ? purCourses.map((course) => (
+              <CourseCard key={course._id} course={course} />
+            ))
+          : "No course has yet been bought!"}
       </div>
     </Main>
   );
