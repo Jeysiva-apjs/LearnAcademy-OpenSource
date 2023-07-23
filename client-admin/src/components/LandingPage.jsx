@@ -1,5 +1,4 @@
 "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { Main, openState } from "./AppNavBar";

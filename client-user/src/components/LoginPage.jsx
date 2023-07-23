@@ -4,63 +4,43 @@ import TextField from "@mui/material/TextField";
 import Card from "@mui/material/Card";
 import { useNavigate } from "react-router-dom";
 import Typography from "@mui/material/Typography";
+import axios from "axios";
+import { useRecoilState } from "recoil";
+import { adminState } from "../store/atoms/admin";
+
 import "../index.css";
-import { atom, useRecoilState } from "recoil";
-
-/// File is incomplete. You need to add input boxes to take input for users to login.
-
-const emailState = atom({
-  key: "emailState",
-  default: "",
-});
-
-const passwordState = atom({
-  key: "passwordState",
-  default: "",
-});
-
-const isLoggedInState = atom({
-  key: "isLoggedInState",
-  default: false,
-});
 
 function LoginPage() {
-  const [email, setEmail] = useRecoilState(emailState);
-  const [password, setPassword] = useRecoilState(passwordState);
-  const [message, setMessage] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
+  const [admin, setAdmin] = useRecoilState(adminState);
+  const [message, setMessage] = useState();
 
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    if (email.trim() === "" || password.trim() == "") {
+  const handleRegister = async () => {
+    if (admin.email.trim() === "" || admin.password.trim() == "") {
       setMessage("Email/Password field cannot be empty.");
       return;
     } else {
-      fetch("http://localhost:3000/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: email,
-          password: password,
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          localStorage.setItem("token", data.token);
-          if (data.message === "Invalid username or password") {
-            setMessage(data.message);
-            return;
-          }
-          setEmail("");
-          setPassword("");
-          setIsLoggedIn(true);
-          setMessage("");
-          navigate("/courses");
-          window.location.reload();
+      try {
+        const response = await axios.post("http://localhost:3000/users/login", {
+          username: admin.email,
+          password: admin.password,
         });
+
+        setAdmin({
+          email: "",
+          passowrd: "",
+          isLoggedIn: true,
+        });
+        localStorage.setItem("token", response.data.token);
+
+        setMessage("");
+        alert(response.data.message);
+        navigate("/courses");
+      } catch (err) {
+        console.log(err);
+        setMessage(err.response.data.message);
+      }
     }
   };
 
@@ -83,7 +63,6 @@ function LoginPage() {
         >
           Login To LearnAcademy
         </Typography>
-
         {message && (
           <div>
             <p
@@ -100,29 +79,32 @@ function LoginPage() {
           </div>
         )}
       </div>
-
       <Card className="form">
         <TextField
           id="email"
           label="Email"
           variant="outlined"
           type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={admin.email}
+          onChange={(e) =>
+            setAdmin((prev) => ({ ...prev, email: e.target.value }))
+          }
         />
         <TextField
           id="password"
           label="Password"
           variant="outlined"
           type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={admin.password}
+          onChange={(e) =>
+            setAdmin((prev) => ({ ...prev, password: e.target.value }))
+          }
         />
         <Button
           style={{ backgroundColor: "#101460" }}
           className="button"
           variant="contained"
-          onClick={handleLogin}
+          onClick={handleRegister}
         >
           Login
         </Button>
@@ -145,6 +127,5 @@ function LoginPage() {
     </div>
   );
 }
-export { isLoggedInState };
 
 export default LoginPage;
