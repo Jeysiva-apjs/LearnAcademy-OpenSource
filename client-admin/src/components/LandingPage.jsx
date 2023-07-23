@@ -2,15 +2,15 @@
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { isLoggedInState } from "./LoginPage";
 import { Main, openState } from "./AppNavBar";
-import Typography from "@mui/material/Typography";
+import { adminIsLoggedInState } from "../store/selectors/adminIsLoggedIn";
 import "./style.css";
 
 function LandingPage() {
-  const [isLoggedIn] = useRecoilState(isLoggedInState);
+  const [isLoggedIn] = useRecoilState(adminIsLoggedInState);
   const [open] = useRecoilState(openState);
   const navigate = useNavigate();
+  console.log(isLoggedIn);
   return (
     <Main open={open}>
       <div className="landing-page-container">
@@ -21,7 +21,7 @@ function LandingPage() {
             className="button-style"
             onClick={() => navigate(isLoggedIn ? "/courses" : "/login")}
           >
-            View Courses
+            {isLoggedIn ? "View Courses" : "Login Here"}
           </button>
         </div>
         <div>

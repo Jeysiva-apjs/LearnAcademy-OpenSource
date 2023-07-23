@@ -5,30 +5,19 @@ import Card from "@mui/material/Card";
 import { useNavigate } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
-import { atom, useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { adminState } from "../store/atoms/admin";
 
 import "../index.css";
 
-const emailState = atom({
-  key: "emailState",
-  default: "",
-});
-
-const passwordState = atom({
-  key: "passwordState",
-  default: "",
-});
-
-/// File is incomplete. You need to add input boxes to take input for users to register.
 function RegisterPage() {
-  const [email, setEmail] = useRecoilState(emailState);
-  const [password, setPassword] = useRecoilState(passwordState);
+  const [admin, setAdmin] = useRecoilState(adminState);
   const [message, setMessage] = useState();
 
   const navigate = useNavigate();
 
   const handleRegister = async () => {
-    if (email.trim() === "" || password.trim() == "") {
+    if (admin.email.trim() === "" || admin.password.trim() == "") {
       setMessage("Email/Password field cannot be empty.");
       return;
     } else {
@@ -36,16 +25,21 @@ function RegisterPage() {
         const response = await axios.post(
           "http://localhost:3000/admin/signup",
           {
-            username: email,
-            password: password,
+            username: admin.email,
+            password: admin.password,
           }
         );
 
-        setEmail("");
-        setPassword("");
+        setAdmin({
+          email: "",
+          passowrd: "",
+          isLoggedIn: true,
+        });
+        localStorage.setItem("token", response.data.token);
+
         setMessage("");
         alert(response.data.message);
-        navigate("/login");
+        navigate("/courses");
       } catch (err) {
         console.log(err);
         setMessage(err.response.data.message);
@@ -94,16 +88,20 @@ function RegisterPage() {
           label="Email"
           variant="outlined"
           type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={admin.email}
+          onChange={(e) =>
+            setAdmin((prev) => ({ ...prev, email: e.target.value }))
+          }
         />
         <TextField
           id="password"
           label="Password"
           variant="outlined"
           type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={admin.password}
+          onChange={(e) =>
+            setAdmin((prev) => ({ ...prev, password: e.target.value }))
+          }
         />
         <Button
           style={{ backgroundColor: "#101460" }}
