@@ -2,11 +2,11 @@
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { Main, openState } from "./AppNavBar";
-import { adminIsLoggedInState } from "../store/selectors/adminIsLoggedIn";
+import { userIsLoggedInState } from "../store/selectors/userIsLoggedIn";
 import "./style.css";
 
 function LandingPage() {
-  const [isLoggedIn] = useRecoilState(adminIsLoggedInState);
+  const [isLoggedIn] = useRecoilState(userIsLoggedInState);
   const [open] = useRecoilState(openState);
   const navigate = useNavigate();
   console.log(isLoggedIn);

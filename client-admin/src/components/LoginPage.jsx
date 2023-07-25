@@ -33,6 +33,7 @@ function LoginPage() {
           isLoggedIn: true,
         });
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("isLoggedIn", true);
 
         setMessage("");
         alert(response.data.message);

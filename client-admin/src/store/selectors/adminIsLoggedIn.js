@@ -1,4 +1,4 @@
-import { atom, selector } from "recoil";
+import { selector } from "recoil";
 import { adminState } from "../atoms/admin";
 
 export const adminIsLoggedInState = selector({

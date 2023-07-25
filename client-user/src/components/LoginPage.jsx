@@ -6,33 +6,34 @@ import { useNavigate } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
 import { useRecoilState } from "recoil";
-import { adminState } from "../store/atoms/admin";
+import { userState } from "../store/atoms/user";
 
 import "../index.css";
 
 function LoginPage() {
-  const [admin, setAdmin] = useRecoilState(adminState);
+  const [user, setUser] = useRecoilState(userState);
   const [message, setMessage] = useState();
 
   const navigate = useNavigate();
 
   const handleRegister = async () => {
-    if (admin.email.trim() === "" || admin.password.trim() == "") {
+    if (user.email.trim() === "" || user.password.trim() == "") {
       setMessage("Email/Password field cannot be empty.");
       return;
     } else {
       try {
         const response = await axios.post("http://localhost:3000/users/login", {
-          username: admin.email,
-          password: admin.password,
+          username: user.email,
+          password: user.password,
         });
 
-        setAdmin({
+        setUser({
           email: "",
           passowrd: "",
           isLoggedIn: true,
         });
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("isLoggedIn", true);
 
         setMessage("");
         alert(response.data.message);
@@ -85,9 +86,9 @@ function LoginPage() {
           label="Email"
           variant="outlined"
           type="text"
-          value={admin.email}
+          value={user.email}
           onChange={(e) =>
-            setAdmin((prev) => ({ ...prev, email: e.target.value }))
+            setUser((prev) => ({ ...prev, email: e.target.value }))
           }
         />
         <TextField
@@ -95,9 +96,9 @@ function LoginPage() {
           label="Password"
           variant="outlined"
           type="password"
-          value={admin.password}
+          value={user.password}
           onChange={(e) =>
-            setAdmin((prev) => ({ ...prev, password: e.target.value }))
+            setUser((prev) => ({ ...prev, password: e.target.value }))
           }
         />
         <Button
