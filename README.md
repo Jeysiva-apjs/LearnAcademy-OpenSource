@@ -44,6 +44,9 @@ To get a local copy up and running, please follow the simple steps.
 
 ## Development 
 
-print("Hello, world!")
+
+   ```sh
+   yarn dev
+   ```
 
 
