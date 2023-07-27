@@ -34,7 +34,6 @@ A feature-rich full-stack course selling website using the MERN stack (Node.js, 
 Note: The payment system and uploading of course content are still not in place.
 
 ## Demo video
-
 https://youtu.be/7uU38dCcxbs
 
 ## Built With 
