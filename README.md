@@ -118,8 +118,13 @@ Node.js and npm should be installed on your machine.
    ```
 
 # Contributing
-
 I welcome contributions to the LearnAcademy project. If you find any issues or have suggestions for improvements, please create a pull request. Make sure to follow the contribution guidelines in the repository.
+
+## 
+1. Implementing a payment gateway
+2. Implementing course content page.
+3. 
+
 
 # License
 
