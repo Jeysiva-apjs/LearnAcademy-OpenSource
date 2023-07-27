@@ -7,6 +7,21 @@
 
 A feature-rich full-stack course selling website using the MERN stack (Node.js, Express.js, MongoDB, and React).
 
+# Table of Contents
+
+1. [Admin Dashboard](#admin-dashboard)
+2. [User Dashboard](#user-dashboard)
+3. [Demo video](#demo-video)
+4. [Built With](#built-with)
+5. [Getting Started](#getting-started)
+   5.1. [Prerequisites](#prerequisites)
+   5.2. [Development](#development)
+      5.2.1. [Server Setup](#server-setup)
+      5.2.2. [Admin Client Setup](#admin-client-setup)
+      5.2.3. [User Client Setup](#user-client-setup)
+6. [Contributing](#contributing)
+7. [License](#license)
+
 ## Admin Dashboard
 1. The admin side of the course selling app.
 2. Admins can effortlessly log in or register a new account.
