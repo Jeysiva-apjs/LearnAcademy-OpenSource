@@ -1,5 +1,5 @@
  
-![3](https://github.com/Jeysiva-apjs/LearnAcademy/assets/126048586/52b657bb-c0da-4986-9eca-f787f26aa8df)
+![3](https://github.com/Jeysiva-apjs/LearnAcademy/assets/126048586/ed1f579e-2155-4e38-9dd6-b61eeb534b40)
 
 <div align="center">
   <h2>The open-source course selling app</h2>
