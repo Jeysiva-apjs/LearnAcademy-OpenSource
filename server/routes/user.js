@@ -49,7 +49,6 @@ router.get("/courses", authenticateJwt, async (req, res) => {
 
 router.post("/courses/:courseId", authenticateJwt, async (req, res) => {
   const course = await Course.findById(req.params.courseId);
-  console.log(course);
   if (course) {
     const user = await User.findOne({ username: req.user.username });
     if (user) {
@@ -66,7 +65,6 @@ router.post("/courses/:courseId", authenticateJwt, async (req, res) => {
 
 router.get("/courses/:courseId", authenticateJwt, async (req, res) => {
   const course = await Course.findById(req.params.courseId);
-  console.log(course);
   if (course) {
     res.json({ course });
   } else {

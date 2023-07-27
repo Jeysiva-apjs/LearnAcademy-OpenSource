@@ -12,7 +12,7 @@ import "../index.css";
 
 function LoginPage() {
   const [user, setUser] = useRecoilState(userState);
-  const [message, setMessage] = useState();
+  const [message, setMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ function LoginPage() {
 
         setUser({
           email: "",
-          passowrd: "",
+          password: "",
           isLoggedIn: true,
         });
         localStorage.setItem("token", response.data.token);

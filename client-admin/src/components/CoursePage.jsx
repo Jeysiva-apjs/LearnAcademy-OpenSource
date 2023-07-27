@@ -5,7 +5,7 @@ import { useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { CardActionArea, sliderClasses } from "@mui/material";
+import { CardActionArea } from "@mui/material";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -27,7 +27,6 @@ function CoursePage() {
   const { id } = useParams();
   const [course, setCourse] = useState({});
   const [purCourses, setPurchasedCourses] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     axios

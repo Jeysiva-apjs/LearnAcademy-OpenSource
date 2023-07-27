@@ -61,7 +61,15 @@ function CourseCard(props) {
               gutterBottom
               variant="h5"
               component="div"
-              style={{ fontWeight: "700", color: isMoveOver && "#bc1c44" }}
+              style={{
+                fontWeight: "700",
+                color: isMoveOver && "#bc1c44",
+                display: "-webkit-box",
+                WebkitLineClamp: 1,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
             >
               {props.course.title}
             </Typography>

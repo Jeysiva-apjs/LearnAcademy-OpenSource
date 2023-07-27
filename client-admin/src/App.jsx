@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-//import Appbar from "./components/Appbar";
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
 import LandingPage from "./components/LandingPage";
