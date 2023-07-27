@@ -44,7 +44,7 @@ https://github.com/Jeysiva-apjs/LearnAcademy/assets/126048586/45205e6a-f34f-44a2
 4. MongoDB
 5. CSS3
 
-# Getting Strated
+# Getting Started
 
 To get a local copy up and running, please follow the simple steps. 
 
