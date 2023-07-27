@@ -23,7 +23,9 @@ A feature-rich full-stack course selling website using the MERN stack (Node.js, 
 
 Note: The payment system and uploading of course content are still not in place.
 
-### Demo video: https://clipchamp.com/watch/rq6h6gvU7rK
+## Demo video
+
+<img width="100%" alt="booking-screen" src="https://github.com/Jeysiva-apjs/LearnAcademy/assets/126048586/45205e6a-f34f-44a2-a740-28962c4e5790">
 
 ## Built With 
 1. React.js
@@ -38,12 +40,7 @@ To get a local copy up and running, please follow the simple steps.
 
 ## Prerequisites
 
-1. Node.js (Version: >=18.x)
-2. npm (recommended)
-
-   ```sh
-   
-   ```
+Node.js and npm should be installed on your machine.
 
 ## Development
 
@@ -110,9 +107,15 @@ To get a local copy up and running, please follow the simple steps.
    npm run dev
    ```
 
-## License
+# Contributing
 
-This project is licensed under the [MIT License](LICENSE).
+We welcome contributions to the LearnAcademy project. If you find any issues or have suggestions for improvements, please create a pull request. Make sure to follow the contribution guidelines in the repository.
+
+# License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+Happy learning!
 
    
 
