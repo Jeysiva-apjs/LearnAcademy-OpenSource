@@ -1,4 +1,4 @@
-
+ 
 ![3](https://github.com/Jeysiva-apjs/LearnAcademy/assets/126048586/52b657bb-c0da-4986-9eca-f787f26aa8df)
 
 <div align="center">
@@ -46,13 +46,12 @@ Node.js and npm should be installed on your machine.
 
 1. Fork the repository to your profile.
 2. Clone your repository by running the following command in your terminal:
-
    ```sh
    git clone <your-repository-url>
    ```
 3. Change the directory to the root of the cloned repository
 
-      ```sh
+   ```sh
    git clone <your-repository-url>
    ```
 
@@ -70,7 +69,7 @@ Node.js and npm should be installed on your machine.
    npm install
    ```
 3. Create .env file and add DB_NAME and SECRET
-      ```sh
+   ```sh
    DB_CONNECT = mongodb+srv://<name:password>@cluster0.1uxyuwe.mongodb.net/courses
    SECRET = "Random String";
    ```
@@ -82,35 +81,35 @@ Node.js and npm should be installed on your machine.
 ### Admin Client Setup 
 
 1. Change directory to the client-admin folder
-      ```sh
+   ```sh
    cd ../client-admin
    ```
 2. Install the required npm packages for the admin client
-       ```sh
+   ```sh
    npm install
    ```
 3. Run the admin client in development mode
-      ```sh
+   ```sh
    npm run dev
    ```
 ### User Client Setup 
 
 1. Change directory to the client-admin folder
-      ```sh
+   ```sh
    cd ../client-user
    ```
 2. Install the required npm packages for the admin client
-       ```sh
+   ```sh
    npm install
    ```
 3. Run the admin client in development mode
-      ```sh
+   ```sh
    npm run dev
    ```
 
 # Contributing
 
-We welcome contributions to the LearnAcademy project. If you find any issues or have suggestions for improvements, please create a pull request. Make sure to follow the contribution guidelines in the repository.
+I welcome contributions to the LearnAcademy project. If you find any issues or have suggestions for improvements, please create a pull request. Make sure to follow the contribution guidelines in the repository.
 
 # License
 
