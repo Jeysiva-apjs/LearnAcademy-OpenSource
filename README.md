@@ -44,15 +44,6 @@ To get a local copy up and running, please follow the simple steps.
 
 ## Development 
 
-##### Setup 
-1. Fork the repository to your profile.
-2. Clone your repository
-3. cd LearnAcademy
-4. cd server
-5. npm  install
-6. cd client-admin
-7. npm install
-8. cd client-user
-9. npm install
+print("Hello, world!")
 
 
