@@ -3,10 +3,14 @@ require("dotenv").config();
 
 const DB_CONNECT = process.env.DB_CONNECT;
 
-mongoose.connect(
-  "mongodb+srv://jey:1234@cluster0.1uxyuwe.mongodb.net/courses",
-  {
+mongoose
+  .connect(DB_CONNECT, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  }
-);
+  })
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((err) => {
+    console.error("Error connecting to MongoDB:", err);
+  });
