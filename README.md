@@ -24,7 +24,7 @@ A feature-rich full-stack course selling website using the MERN stack (Node.js, 
 
 Note: The payment system and uploading of course content are still not in place.
 
-##### Demo video: https://clipchamp.com/watch/rq6h6gvU7rK
+### Demo video: https://clipchamp.com/watch/rq6h6gvU7rK
 
 ## Built With 
 1. React.js
@@ -37,16 +37,25 @@ Note: The payment system and uploading of course content are still not in place.
 
 To get a local copy up and running, please follow the simple steps. 
 
-##### Prerequisites
+### Prerequisites
 
 1. Node.js (Version: >=18.x)
 2. npm (recommended)
 
-## Development 
-
-
    ```sh
    yarn dev
    ```
+
+## Development
+
+1. Fork the repository to your profile.
+2. Clone your repository by running the following command in your terminal:
+
+   ```sh
+   git clone <your-repository-url>
+   ```
+   
+
+
 
 
