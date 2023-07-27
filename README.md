@@ -59,11 +59,6 @@ Node.js and npm should be installed on your machine.
    ```sh
    git clone <your-repository-url>
    ```
-3. Change the directory to the root of the cloned repository
-
-   ```sh
-   git clone <your-repository-url>
-   ```
 
 ### Server Setup 
 1. Change directory to the root of the cloned repository
