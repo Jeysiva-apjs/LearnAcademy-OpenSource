@@ -1,5 +1,3 @@
-![2](https://github.com/Jeysiva-apjs/LearnAcademy/assets/126048586/f7358bac-c317-4eee-accd-a9b227df2a18)
-
 <div align="center">
   <h1>LearnAcademy</h1>
   <h3>The open-source course selling app</h3>
