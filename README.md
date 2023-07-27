@@ -26,4 +26,33 @@ Note: The payment system and uploading of course content are still not in place.
 
 ##### Demo video: https://clipchamp.com/watch/rq6h6gvU7rK
 
+## Built With 
+1. React.js
+2. Node.js
+3. Express.js
+4. MongoDB
+5. CSS3
+
+## Getting Strated
+
+To get a local copy up and running, please follow the simple steps. 
+
+##### Prerequisites
+
+1. Node.js (Version: >=18.x)
+2. npm (recommended)
+
+## Development 
+
+##### Setup 
+1. Fork the repository to your profile.
+2. Clone your repository
+3. cd LearnAcademy
+4. cd server
+5. npm  install
+6. cd client-admin
+7. npm install
+8. cd client-user
+9. npm install
+
 
