@@ -123,7 +123,7 @@ I welcome contributions to the LearnAcademy project. If you find any issues or h
 ## 
 1. Implementing a payment gateway
 2. Implementing course content page.
-3. 
+3. Replacing the JavaScript alert box with a toast or snackbar message
 
 
 # License
