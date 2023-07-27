@@ -1,7 +1,6 @@
 
 ![3](https://github.com/Jeysiva-apjs/LearnAcademy/assets/126048586/52b657bb-c0da-4986-9eca-f787f26aa8df)
 
-
 <div align="center">
   <h2>The open-source course selling app</h2>
 </div>
@@ -33,11 +32,11 @@ Note: The payment system and uploading of course content are still not in place.
 4. MongoDB
 5. CSS3
 
-## Getting Strated
+# Getting Strated
 
 To get a local copy up and running, please follow the simple steps. 
 
-### Prerequisites
+## Prerequisites
 
 1. Node.js (Version: >=18.x)
 2. npm (recommended)
