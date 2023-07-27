@@ -3,8 +3,7 @@
 
 
 <div align="center">
-  <h1>LearnAcademy</h1>
-  <h3>The open-source course selling app</h3>
+  <h2>The open-source course selling app</h2>
 </div>
 
 A feature-rich full-stack course selling website using the MERN stack (Node.js, Express.js, MongoDB, and React).
