@@ -58,18 +58,18 @@ Node.js and npm should be installed on your machine.
 
 ### Server Setup 
 1. Change directory to the root of the cloned repository
-      ```sh
+   ```sh
    cd LearnAcademy
    ```
 2. Change directory to the server folder
-       ```sh
+   ```sh
    cd server
    ```
 3. Install the required npm packages
-      ```sh
+   ```sh
    npm install
    ```
-3. Create .env file and add DB_NAME and SECREAT
+3. Create .env file and add DB_NAME and SECRET
       ```sh
    DB_CONNECT = mongodb+srv://<name:password>@cluster0.1uxyuwe.mongodb.net/courses
    SECRET = "Random String";
