@@ -75,9 +75,10 @@ Node.js and npm should be installed on your machine.
    SECRET = "Random String";
    ```
 4. Start the server
-       ```sh
+   ```sh
    npm start
    ```
+
 ### Admin Client Setup 
 
 1. Change directory to the client-admin folder
