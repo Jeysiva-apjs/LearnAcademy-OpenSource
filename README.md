@@ -43,7 +43,7 @@ To get a local copy up and running, please follow the simple steps.
 2. npm (recommended)
 
    ```sh
-   yarn dev
+   
    ```
 
 ## Development
@@ -54,6 +54,72 @@ To get a local copy up and running, please follow the simple steps.
    ```sh
    git clone <your-repository-url>
    ```
+3. Change the directory to the root of the cloned repository
+
+      ```sh
+   git clone <your-repository-url>
+   ```
+
+### Server Setup 
+1. Change directory to the root of the cloned repository
+      ```sh
+   cd LearnAcademy
+   ```
+2. Change directory to the server folder
+       ```sh
+   cd server
+   ```
+3. Install the required npm packages
+      ```sh
+   npm install
+   ```
+3. Create .env file and add DB_NAME and SECREAT
+      ```sh
+   DB_CONNECT = mongodb+srv://<name:password>@cluster0.1uxyuwe.mongodb.net/courses
+   SECRET = "Random String";
+   ```
+4. Start the server
+       ```sh
+   npm start
+   ```
+### Admin Client Setup 
+
+1. Change directory to the client-admin folder
+      ```sh
+   cd ../client-admin
+   ```
+2. Install the required npm packages for the admin client
+       ```sh
+   npm install
+   ```
+3. Run the admin client in development mode
+      ```sh
+   npm run dev
+   ```
+### User Client Setup 
+
+1. Change directory to the client-admin folder
+      ```sh
+   cd ../client-user
+   ```
+2. Install the required npm packages for the admin client
+       ```sh
+   npm install
+   ```
+3. Run the admin client in development mode
+      ```sh
+   npm run dev
+   ```
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+   
+
+
+
+
    
 
 
