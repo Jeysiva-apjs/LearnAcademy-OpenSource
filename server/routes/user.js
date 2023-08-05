@@ -2,12 +2,24 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const { SECRET, authenticateJwt } = require("../middleware/auth");
 const { User, Course } = require("../database/models");
+const z = require("zod");
 
 const router = express.Router();
 
-// User routes
+let entryProps = z.object({
+  username: z.string().min(1).max(50).email(),
+  password: z.string().min(8).max(50),
+});
+
 router.post("/signup", async (req, res) => {
-  const { username, password } = req.body;
+  const parsedInput = entryProps.safeParse(req.body);
+  if (!parsedInput.success) {
+    res.status(411).json({ message: parsedInput.error.issues[0].message });
+    return;
+  }
+  const username = parsedInput.data.username;
+  const password = parsedInput.data.password;
+
   const user = await User.findOne({ username });
   if (user) {
     res.status(403).json({ message: "User already exists" });
@@ -26,7 +38,13 @@ router.get("/me", authenticateJwt, (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  const { username, password } = req.body;
+  const parsedInput = entryProps.safeParse(req.body);
+  if (!parsedInput.success) {
+    res.status(411).json({ message: parsedInput.error.issues[0].message });
+    return;
+  }
+  const username = parsedInput.data.username;
+  const password = parsedInput.data.password;
   const user = await User.findOne({ username, password });
   if (user) {
     const token = jwt.sign({ username, role: "user" }, SECRET, {

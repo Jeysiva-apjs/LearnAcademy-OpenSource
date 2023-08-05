@@ -2,16 +2,29 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const { SECRET, authenticateJwt } = require("../middleware/auth");
 const { Admin, Course } = require("../database/models");
+const z = require("zod");
 
 const router = express.Router();
 
+let entryProps = z.object({
+  username: z.string().min(1).max(50).email(),
+  password: z.string().min(8).max(50),
+});
+
 router.post("/signup", (req, res) => {
-  const { username, password } = req.body;
+  const parsedInput = entryProps.safeParse(req.body);
+  if (!parsedInput.success) {
+    res.status(411).json({ message: parsedInput.error.issues[0].message });
+    return;
+  }
   function callback(admin) {
     if (admin) {
       res.status(403).json({ message: "Admin already exists" });
     } else {
-      const obj = { username: username, password: password };
+      const obj = {
+        username: parsedInput.data.username,
+        password: parsedInput.data.password,
+      };
       const newAdmin = new Admin(obj);
       newAdmin.save();
       const token = jwt.sign({ username, role: "admin" }, SECRET, {
@@ -20,6 +33,7 @@ router.post("/signup", (req, res) => {
       res.json({ message: "Admin created successfully", token });
     }
   }
+  const username = parsedInput.data.username;
   Admin.findOne({ username }).then(callback);
 });
 
@@ -28,7 +42,13 @@ router.get("/me", authenticateJwt, (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  const { username, password } = req.body;
+  const parsedInput = entryProps.safeParse(req.body);
+  if (!parsedInput.success) {
+    res.status(411).json({ message: parsedInput.error.issues[0].message });
+    return;
+  }
+  const username = parsedInput.data.username;
+  const password = parsedInput.data.password;
   const admin = await Admin.findOne({ username, password });
   if (admin) {
     const token = jwt.sign({ username, role: "admin" }, SECRET, {
