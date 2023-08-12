@@ -6,7 +6,7 @@ const z = require("zod");
 
 const router = express.Router();
 
-let entryProps = z.object({
+let signupProps = z.object({
   username: z.string().min(1).max(50).email(),
   password: z.string().min(8).max(50),
 });
@@ -38,7 +38,7 @@ router.get("/me", authenticateJwt, (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  const parsedInput = entryProps.safeParse(req.body);
+  const parsedInput = signupProps.safeParse(req.body);
   if (!parsedInput.success) {
     res.status(411).json({ message: parsedInput.error.issues[0].message });
     return;
