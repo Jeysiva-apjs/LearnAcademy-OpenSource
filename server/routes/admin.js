@@ -11,30 +11,26 @@ let entryProps = z.object({
   password: z.string().min(8).max(50),
 });
 
-router.post("/signup", (req, res) => {
-  const parsedInput = entryProps.safeParse(req.body);
+router.post("/signup", async (req, res) => {
+  const parsedInput = signupProps.safeParse(req.body);
   if (!parsedInput.success) {
     res.status(411).json({ message: parsedInput.error.issues[0].message });
     return;
   }
-  function callback(admin) {
-    if (admin) {
-      res.status(403).json({ message: "Admin already exists" });
-    } else {
-      const obj = {
-        username: parsedInput.data.username,
-        password: parsedInput.data.password,
-      };
-      const newAdmin = new Admin(obj);
-      newAdmin.save();
-      const token = jwt.sign({ username, role: "admin" }, SECRET, {
-        expiresIn: "1h",
-      });
-      res.json({ message: "Admin created successfully", token });
-    }
-  }
   const username = parsedInput.data.username;
-  Admin.findOne({ username }).then(callback);
+  const password = parsedInput.data.password;
+
+  const user = await Admin.findOne({ username });
+  if (user) {
+    res.status(403).json({ message: "Admin already exists" });
+  } else {
+    const newUser = new User({ username, password });
+    await newUser.save();
+    const token = jwt.sign({ username, role: "admin" }, SECRET, {
+      expiresIn: "1h",
+    });
+    res.json({ message: "Admin created successfully", token });
+  }
 });
 
 router.get("/me", authenticateJwt, (req, res) => {
