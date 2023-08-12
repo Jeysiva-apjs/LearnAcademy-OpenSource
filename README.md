@@ -111,7 +111,7 @@ Node.js and npm should be installed on your machine.
    npm run dev
    ```
 
-# Contributing ideas
+# Contribution ideas
 I welcome contributions to the LearnAcademy project. If you find any issues or have suggestions for improvements, please create a pull request. Make sure to follow the contribution guidelines in the repository.
 
 ## 
