@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Card from "@mui/material/Card";
 import { useNavigate } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { adminState } from "../store/atoms/admin";
 import toast from "react-hot-toast";
 
 import "../index.css";
 
 function RegisterPage() {
-  const [admin, setAdmin] = useRecoilState(adminState);
+  const [admin, setAdmin] = useState({ email: "", passowrd: "" });
+  const setAdminRecoil = useSetRecoilState(adminState);
   const [message, setMessage] = useState();
 
   const navigate = useNavigate();
@@ -31,13 +32,14 @@ function RegisterPage() {
           }
         );
 
-        setAdmin({
-          email: "",
-          passowrd: "",
+        setAdminRecoil({
+          email: admin.email,
+          username: admin.email.split('@')[0].toUpperCase(),
           isLoggedIn: true,
         });
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("isLoggedIn", true);
+        localStorage.setItem("email", admin.email);
 
         setMessage("");
         toast.success(response.data.message);
