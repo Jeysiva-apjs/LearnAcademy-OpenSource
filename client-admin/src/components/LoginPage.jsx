@@ -5,19 +5,20 @@ import Card from "@mui/material/Card";
 import { useNavigate } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { adminState } from "../store/atoms/admin";
 import { toast } from "react-hot-toast";
 
 import "../index.css";
 
 function LoginPage() {
-  const [admin, setAdmin] = useRecoilState(adminState);
+  const [admin, setAdmin] = useState({ email: "", password: "" });
+  const setAdminRecoil = useSetRecoilState(adminState);
   const [message, setMessage] = useState();
 
   const navigate = useNavigate();
 
-  const handleRegister = async () => {
+  const handleLogin = async () => {
     if (admin.email.trim() === "" || admin.password.trim() == "") {
       setMessage("Email/Password field cannot be empty.");
       return;
@@ -28,13 +29,14 @@ function LoginPage() {
           password: admin.password,
         });
 
-        setAdmin({
-          email: "",
-          passowrd: "",
+        setAdminRecoil({
+          email: admin.email,
+          username: admin.email.split('@')[0].toUpperCase(),
           isLoggedIn: true,
         });
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("isLoggedIn", true);
+        localStorage.setItem("email", admin.email);
 
         setMessage("");
         toast.success(response.data.message);
@@ -106,7 +108,7 @@ function LoginPage() {
           style={{ backgroundColor: "#101460" }}
           className="button"
           variant="contained"
-          onClick={handleRegister}
+          onClick={handleLogin}
         >
           Login
         </Button>

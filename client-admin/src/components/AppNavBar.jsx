@@ -1,4 +1,3 @@
-import * as React from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -22,6 +21,7 @@ import { adminState } from "../store/atoms/admin";
 import Button from "@mui/material/Button";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import "./style.css";
 
 const drawerWidth = 240;
@@ -125,7 +125,9 @@ export default function AppNavBar() {
             <Button
               color="inherit"
               onClick={() => {
-                localStorage.setItem("token", "");
+                localStorage.removeItem("token");
+                localStorage.removeItem("isLoggedIn");
+                localStorage.removeItem("email");
                 setAdmin({
                   email: "",
                   password: "",
@@ -162,6 +164,17 @@ export default function AppNavBar() {
         open={open}
       >
         <DrawerHeader>
+          {admin.isLoggedIn && <List>
+            {/* add user name and email */}
+            <ListItem key='name' disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <AccountBoxIcon />
+                </ListItemIcon>
+                <ListItemText primary={admin?.username} secondary={admin?.email} />
+              </ListItemButton>
+            </ListItem>
+          </List>}
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
