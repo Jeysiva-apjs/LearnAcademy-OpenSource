@@ -18,5 +18,8 @@
     "mongoose": "^7.3.4",
     "pm2": "^5.3.0",
     "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
