@@ -7,6 +7,7 @@ import CoursePage from "./components/CoursePage";
 import AppNavBar from "./components/AppNavBar";
 import CreateCourse from "./components/CreateCourse";
 import UpdateCourse from "./components/UpdateCourse";
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/updateCourse/:courseId" element={<UpdateCourse />} />
         <Route path="/createCourse" element={<CreateCourse />} />
       </Routes>
+      <Toaster />
     </Router>
   );
 }

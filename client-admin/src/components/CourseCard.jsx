@@ -1,6 +1,5 @@
 import Card from "@mui/material/Card";
 import PropTypes from "prop-types";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
@@ -9,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { coursesState } from "./ShowCourses";
 import axios from "axios";
-
+import { toast } from "react-hot-toast";
 import { useState } from "react";
 
 function CourseCard(props) {
@@ -29,7 +28,7 @@ function CourseCard(props) {
         })
         .then((res) => {
           setCourses(courses.filter((course) => course._id !== id));
-          alert(res.data.message);
+          toast.success(res.data.message);
           navigate("/courses");
         })
         .catch((err) => console.log(err));

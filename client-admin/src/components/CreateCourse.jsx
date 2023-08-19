@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CourseForm from "./CourseForm";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 function CreateCourse(props) {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ function CreateCourse(props) {
     })
       .then((response) => response.json())
       .then((data) => {
-        alert(data.message);
+        toast.success(data.message);
         setDescription("");
         setImageLink("");
         setTitle("");
@@ -64,7 +65,7 @@ function CreateCourse(props) {
     })
       .then((response) => response.json())
       .then((data) => {
-        alert(data.message);
+        toast.success(data.message);
         navigate(`/courses`);
       })
       .catch((err) => console.log(err));
