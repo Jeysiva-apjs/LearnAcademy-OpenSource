@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Card from "@mui/material/Card";
 import { useNavigate } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { userState } from "../store/atoms/user";
 
 import "../index.css";
+import { toast } from "react-hot-toast";
 
 function RegisterPage() {
   const [user, setUser] = useRecoilState(userState);
@@ -39,7 +40,7 @@ function RegisterPage() {
         localStorage.setItem("isLoggedIn", true);
 
         setMessage("");
-        alert(response.data.message);
+        toast.success(response.data.message);
         navigate("/courses");
       } catch (err) {
         console.log(err);

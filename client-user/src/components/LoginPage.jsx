@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Card from "@mui/material/Card";
@@ -9,6 +9,7 @@ import { useRecoilState } from "recoil";
 import { userState } from "../store/atoms/user";
 
 import "../index.css";
+import { toast } from "react-hot-toast";
 
 function LoginPage() {
   const [user, setUser] = useRecoilState(userState);
@@ -36,7 +37,7 @@ function LoginPage() {
         localStorage.setItem("isLoggedIn", true);
 
         setMessage("");
-        alert(response.data.message);
+        toast.success(response.data.message);
         navigate("/courses");
       } catch (err) {
         console.log(err);

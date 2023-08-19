@@ -20,7 +20,7 @@ import ClosedCaptionIcon from "@mui/icons-material/ClosedCaption";
 import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
 import Button from "@mui/material/Button";
-
+import toast from 'react-hot-toast';
 import "./coursesStyles.css";
 
 function CoursePage() {
@@ -99,7 +99,7 @@ function CoursePage() {
                     }
                   )
                   .then((res) => {
-                    alert(res.data.message);
+                    toast.success(res.data.message);
                     window.location.reload();
                   })
                   .catch((err) => console.log(err));
