@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Card from "@mui/material/Card";
@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import axios from "axios";
 import { useRecoilState } from "recoil";
 import { adminState } from "../store/atoms/admin";
+import { toast } from "react-hot-toast";
 
 import "../index.css";
 
@@ -36,7 +37,7 @@ function LoginPage() {
         localStorage.setItem("isLoggedIn", true);
 
         setMessage("");
-        alert(response.data.message);
+        toast.success(response.data.message);
         navigate("/courses");
       } catch (err) {
         console.log(err);

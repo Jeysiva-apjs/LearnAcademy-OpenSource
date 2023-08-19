@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import axios from "axios";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { adminState } from "../store/atoms/admin";
+import toast from "react-hot-toast";
 
 import "../index.css";
 
@@ -39,7 +40,7 @@ function RegisterPage() {
         localStorage.setItem("isLoggedIn", true);
 
         setMessage("");
-        alert(response.data.message);
+        toast.success(response.data.message);
         navigate("/courses");
       } catch (err) {
         console.log(err);
