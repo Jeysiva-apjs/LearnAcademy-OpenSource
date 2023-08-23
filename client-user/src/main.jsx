@@ -11,8 +11,9 @@ import { RecoilRoot } from "recoil";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   // had to remove React.StrictMode as everything runs twice and course is purchased twice.
-  <RecoilRoot>
-    <App />
-  </RecoilRoot>
-
+  <React.StrictMode>
+    <RecoilRoot>
+      <App />
+    </RecoilRoot>
+  </React.StrictMode>
 );

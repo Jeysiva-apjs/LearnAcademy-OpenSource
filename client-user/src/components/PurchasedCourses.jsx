@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CourseCard from "./CourseCard";
 import "../index.css";
-import { atom, useRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import axios from "axios";
 import { Main, openState } from "./AppNavBar";
 import "./coursesStyles.css";
@@ -37,7 +37,6 @@ function PurchasedCourses() {
           color: "#101460",
           textAlign: "center",
           marginTop: "70px",
-          marginLeft: "230px",
         }}
       >
         Purchased Courses
@@ -45,8 +44,8 @@ function PurchasedCourses() {
       <div className="all-courses">
         {purCourses.length > 0
           ? purCourses.map((course) => (
-              <CourseCard key={course._id} course={course} />
-            ))
+            <CourseCard key={course._id} course={course} />
+          ))
           : "No course has yet been bought!"}
       </div>
     </Main>

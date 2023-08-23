@@ -72,23 +72,20 @@ router.post("/courses/:courseId", authenticateJwt, async (req, res) => {
   if (!course) {
     return res.status(404).json({ message: 'Course not found' })
   }
-  if (course) {
-    const user = await User.findOne({ username: req.user.username });
-    if (user) {
-      // check if course is already purchased
-      const index = user.purchasedCourses.findIndex(id => id === courseId);
-      if (index !== -1) {
-        return res.json({ message: 'Course already purchased' })
-      }
-      user.purchasedCourses.push(course);
-      await user.save();
-      res.json({ message: "Course purchased successfully" });
-    } else {
-      res.status(403).json({ message: "User not found" });
+  const user = await User.findOne({ username: req.user.username });
+  if (user) {
+    // check if course is already purchased
+    const index = user.purchasedCourses.findIndex(id => id === courseId);
+    if (index !== -1) {
+      return res.json({ message: 'Course already purchased' })
     }
+    user.purchasedCourses.push(course);
+    await user.save();
+    res.json({ message: "Course purchased successfully" });
   } else {
-    res.status(404).json({ message: "Course not found" });
+    res.status(403).json({ message: "User not found" });
   }
+
 });
 
 router.get("/courses/:courseId", authenticateJwt, async (req, res) => {
