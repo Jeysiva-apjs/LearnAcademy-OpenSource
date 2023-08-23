@@ -2,6 +2,7 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const { SECRET, authenticateJwt } = require("../middleware/auth");
 const { User, Course } = require("../database/models");
+const { getACourse } = require("../database/utils");
 const z = require("zod");
 
 const router = express.Router();
@@ -66,10 +67,19 @@ router.get("/courses", authenticateJwt, async (req, res) => {
 });
 
 router.post("/courses/:courseId", authenticateJwt, async (req, res) => {
-  const course = await Course.findById(req.params.courseId);
+  const courseId = req.params.courseId;
+  const course = await getACourse(courseId);
+  if (!course) {
+    return res.status(404).json({ message: 'Course not found' })
+  }
   if (course) {
     const user = await User.findOne({ username: req.user.username });
     if (user) {
+      // check if course is already purchased
+      const index = user.purchasedCourses.findIndex(id => id === courseId);
+      if (index !== -1) {
+        return res.json({ message: 'Course already purchased' })
+      }
       user.purchasedCourses.push(course);
       await user.save();
       res.json({ message: "Course purchased successfully" });

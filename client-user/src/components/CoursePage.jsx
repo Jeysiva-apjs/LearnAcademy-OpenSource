@@ -53,7 +53,31 @@ function CoursePage() {
       .catch((err) => console.log(err));
   }, []);
 
+  // check if the course is purchased or not
   const isPurchased = purCourses.filter((item) => item._id == id).length === 1;
+
+  const makePayment = () => {
+    navigate(`/courses/${id}/payment`)
+  }
+
+  const buyCourse = () => {
+    axios
+      .post(
+        `http://localhost:3000/users/courses/${id}`,
+        {},
+        {
+          headers: {
+            Authorization:
+              "Bearer " + localStorage.getItem("token"),
+          },
+        }
+      )
+      .then((res) => {
+        toast.success(res.data.message);
+        window.location.reload();
+      })
+      .catch((err) => console.log(err));
+  }
 
   return (
     <div className="single-course">
@@ -86,24 +110,7 @@ function CoursePage() {
                 fontSize: "1rem",
                 borderRadius: "50px",
               }}
-              onClick={() => {
-                axios
-                  .post(
-                    `http://localhost:3000/users/courses/${id}`,
-                    {},
-                    {
-                      headers: {
-                        Authorization:
-                          "Bearer " + localStorage.getItem("token"),
-                      },
-                    }
-                  )
-                  .then((res) => {
-                    toast.success(res.data.message);
-                    window.location.reload();
-                  })
-                  .catch((err) => console.log(err));
-              }}
+              onClick={makePayment}
             >
               BUY @ ${course.price}
             </Button>
