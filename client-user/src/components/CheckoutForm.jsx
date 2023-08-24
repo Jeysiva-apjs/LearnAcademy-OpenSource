@@ -5,6 +5,8 @@ import {
     useStripe,
     useElements
 } from "@stripe/react-stripe-js";
+import Button from "@mui/material/Button";
+import CircularProgress from '@mui/joy/CircularProgress';
 
 export default function CheckoutForm({ id }) {
     const stripe = useStripe();
@@ -13,6 +15,10 @@ export default function CheckoutForm({ id }) {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        console.log(`isLoading: ${isLoading}`)
+    }, [isLoading])
 
     useEffect(() => {
         if (!stripe) {
@@ -94,11 +100,18 @@ export default function CheckoutForm({ id }) {
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <PaymentElement id="payment-element" options={paymentElementOptions} />
-                <button disabled={isLoading || !stripe || !elements} id="submit">
+                <Button
+                    disabled={isLoading || !stripe || !elements} type="submit"
+                    variant="contained"
+                    style={{ backgroundColor: "green", marginBottom: "10px" }}
+                >
+                    {isLoading ? <CircularProgress size="sm" color="neutral" /> : "Pay now"}
+                </Button>
+                {/* <button disabled={isLoading || !stripe || !elements} id="submit">
                     <span id="button-text">
                         {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
                     </span>
-                </button>
+                </button> */}
                 {/* Show any error or success messages */}
                 {message && <div id="payment-message">{message}</div>}
             </form>

@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useEffect, useRef } from "react";
 
-const ConfirmPayment = () => {
+const AddCourse = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const sendRequest = useRef(true); // this is used to make sure that the api request is sent once
@@ -40,4 +40,4 @@ const ConfirmPayment = () => {
     )
 }
 
-export default ConfirmPayment;
+export default AddCourse;
