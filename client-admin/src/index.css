@@ -47,8 +47,8 @@
   display: flex;
   gap: 35px;
   margin-top: 20px;
-  /* margin-left: 400px;
-  margin-right: 300px; */
+  margin-left: 400px;
+  margin-right: 300px;
   flex-wrap: wrap;
   align-items: center;
 }
