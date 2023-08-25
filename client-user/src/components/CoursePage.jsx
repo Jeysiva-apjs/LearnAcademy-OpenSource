@@ -59,25 +59,6 @@ function CoursePage() {
     navigate(`/courses/${id}/payment`)
   }
 
-  // const buyCourse = () => {
-  //   axios
-  //     .post(
-  //       `http://localhost:3000/users/courses/${id}`,
-  //       {},
-  //       {
-  //         headers: {
-  //           Authorization:
-  //             "Bearer " + localStorage.getItem("token"),
-  //         },
-  //       }
-  //     )
-  //     .then((res) => {
-  //       toast.success(res.data.message);
-  //       window.location.reload();
-  //     })
-  //     .catch((err) => console.log(err));
-  // }
-
   return (
     <div className="single-course">
       <div className="text-container">
