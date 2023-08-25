@@ -214,8 +214,7 @@ function CoursePage() {
                           <AllInclusiveIcon />
                         </ListItemIcon>
                         <ListItemText
-                          primary="Lifetime access
-"
+                          primary="Lifetime access"
                         />
                       </ListItemButton>
                     </ListItem>
