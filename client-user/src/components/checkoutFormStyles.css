@@ -1,0 +1,20 @@
+.checkoutFormContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.checkoutForm {
+    margin-top: 100px;
+
+    @media (max-width: 480px) {
+        width: 90%;
+    }
+
+    @media (min-width: 481px) and (max-width: 800px) {
+        width: 70%;
+    }
+
+    @media (min-width: 801px) and (max-width: 1700px) {
+        width: 50%;
+    }
+}
