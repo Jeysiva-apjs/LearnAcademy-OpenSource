@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CourseCard from "./CourseCard";
 import "../index.css";
-import { atom, useRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import axios from "axios";
 import { Main, openState } from "./AppNavBar";
 import "./coursesStyles.css";
 import Typography from "@mui/material/Typography";
+import CircularProgress from '@mui/joy/CircularProgress';
 
 function PurchasedCourses() {
   const [open, setOpen] = useRecoilState(openState);
   const [purCourses, setPurchasedCourses] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -20,9 +22,14 @@ function PurchasedCourses() {
       })
       .then((res) => {
         setPurchasedCourses(res.data.purchasedCourses);
+        setIsLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err)
+        setIsLoading(false);
+      });
   }, []);
+
 
   return (
     <Main open={open}>
@@ -37,7 +44,6 @@ function PurchasedCourses() {
           color: "#101460",
           textAlign: "center",
           marginTop: "70px",
-          marginLeft: "230px",
         }}
       >
         Purchased Courses
@@ -45,12 +51,17 @@ function PurchasedCourses() {
       <div className="all-courses">
         {purCourses.length > 0
           ? purCourses.map((course) => (
-              <CourseCard key={course._id} course={course} />
-            ))
-          : "No course has yet been bought!"}
+            <CourseCard key={course._id} course={course} />
+          ))
+          : isLoading
+            ? <CircularProgress size="sm" color="neutral" />
+            : "No course has yet been purchased"
+        }
       </div>
     </Main>
   );
 }
+
+
 
 export default PurchasedCourses;

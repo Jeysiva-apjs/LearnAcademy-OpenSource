@@ -5,7 +5,7 @@ import { useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { CardActionArea, sliderClasses } from "@mui/material";
+import { CardActionArea } from "@mui/material";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -20,7 +20,6 @@ import ClosedCaptionIcon from "@mui/icons-material/ClosedCaption";
 import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
 import Button from "@mui/material/Button";
-import toast from 'react-hot-toast';
 import "./coursesStyles.css";
 
 function CoursePage() {
@@ -51,9 +50,14 @@ function CoursePage() {
         setPurchasedCourses(res.data.purchasedCourses);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
 
+  // check if the course is purchased or not
   const isPurchased = purCourses.filter((item) => item._id == id).length === 1;
+
+  const makePayment = () => {
+    navigate(`/courses/${id}/payment`)
+  }
 
   return (
     <div className="single-course">
@@ -86,24 +90,7 @@ function CoursePage() {
                 fontSize: "1rem",
                 borderRadius: "50px",
               }}
-              onClick={() => {
-                axios
-                  .post(
-                    `http://localhost:3000/users/courses/${id}`,
-                    {},
-                    {
-                      headers: {
-                        Authorization:
-                          "Bearer " + localStorage.getItem("token"),
-                      },
-                    }
-                  )
-                  .then((res) => {
-                    toast.success(res.data.message);
-                    window.location.reload();
-                  })
-                  .catch((err) => console.log(err));
-              }}
+              onClick={makePayment}
             >
               BUY @ ${course.price}
             </Button>
@@ -227,8 +214,7 @@ function CoursePage() {
                           <AllInclusiveIcon />
                         </ListItemIcon>
                         <ListItemText
-                          primary="Lifetime access
-"
+                          primary="Lifetime access"
                         />
                       </ListItemButton>
                     </ListItem>

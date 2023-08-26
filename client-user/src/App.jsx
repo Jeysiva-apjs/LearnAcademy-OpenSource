@@ -7,6 +7,8 @@ import ShowCourses from "./components/ShowCourses";
 import CoursePage from "./components/CoursePage";
 import PurchasedCourses from "./components/PurchasedCourses";
 import AppNavBar from "./components/AppNavBar";
+import PaymentForm from "./components/PaymentForm";
+import AddCourse from "./components/AddCourse";
 import { Toaster } from 'react-hot-toast';
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
         <Route path="/courses" element={<ShowCourses />} />
         <Route path="/courses/:id" element={<CoursePage />} />
         <Route path="/courses/purchased" element={<PurchasedCourses />} />
+        <Route path="/courses/:id/payment" element={<PaymentForm />} />
+        <Route path="/courses/:id/confirm-payment" element={<AddCourse />} />
       </Routes>
       <Toaster />
     </Router>

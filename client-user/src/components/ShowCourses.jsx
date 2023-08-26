@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CourseCard from "./CourseCard";
 import Button from "@mui/material/Button";
-
+import CircularProgress from '@mui/joy/CircularProgress';
 import { Typography } from "@mui/material";
 import "../index.css";
 import { useNavigate } from "react-router-dom";
@@ -19,6 +19,8 @@ function ShowCourses() {
   const navigate = useNavigate();
   const [courses, setCourses] = useRecoilState(coursesState);
   const [open] = useRecoilState(openState);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     axios
       .get("http://localhost:3000/users/courses/", {
@@ -28,8 +30,12 @@ function ShowCourses() {
       })
       .then((res) => {
         setCourses(res.data.courses);
+        setIsLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setIsLoading(false);
+      });
   }, []);
 
   return (
@@ -53,9 +59,12 @@ function ShowCourses() {
       <div className="all-courses">
         {courses.length > 0
           ? courses.map((course) => (
-              <CourseCard key={course._id} course={course} />
-            ))
-          : "Oops! No course is currently offered. Return later!"}
+            <CourseCard key={course._id} course={course} />
+          ))
+          : isLoading
+            ? <CircularProgress size="sm" color="neutral" />
+            : "Oops! No course is currently offered. Return later!"
+        }
       </div>
     </Main>
   );
