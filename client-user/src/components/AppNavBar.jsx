@@ -222,5 +222,4 @@ export default function AppNavBar() {
     </Box>
   );
 }
-
 export { Main, openState };
