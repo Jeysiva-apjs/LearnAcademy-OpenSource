@@ -114,12 +114,6 @@ Node.js and npm should be installed on your machine.
 # Contribution ideas
 I welcome contributions to the LearnAcademy project. If you find any issues or have suggestions for improvements, please create a pull request. Make sure to follow the contribution guidelines in the repository.
 
-## 
-1. Implementing a payment gateway
-2. Implementing course content page.
-3. Replacing the JavaScript alert box with a toast or snackbar message
-
-
 # License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
