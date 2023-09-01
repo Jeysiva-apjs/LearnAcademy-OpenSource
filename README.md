@@ -31,8 +31,6 @@ A feature-rich full-stack course selling website using the MERN stack (Node.js, 
 3. Users get access to a wide range of courses to explore and learn from.
 4. Users can seamlessly purchase their preferred courses! 💡
 
-Note: The payment system and uploading of course content are still not in place.
-
 ## Demo video
 https://youtu.be/7uU38dCcxbs
 
@@ -110,9 +108,6 @@ Node.js and npm should be installed on your machine.
    ```sh
    npm run dev
    ```
-
-# Contribution ideas
-I welcome contributions to the LearnAcademy project. If you find any issues or have suggestions for improvements, please create a pull request. Make sure to follow the contribution guidelines in the repository.
 
 # License
 
