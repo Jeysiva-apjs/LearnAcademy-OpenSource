@@ -4,7 +4,7 @@
   <h2>A course-selling app</h2>
 </div>
 
-A feature-rich full-stack course-selling website using the MERN stack (Node.js, Express.js, MongoDB, and React).
+A full-stack course-selling app with admin and user dashboards. Admins can manage courses, while users can explore and purchase. It offers login and registration for both roles.
 
 # Table of Contents
 
@@ -20,15 +20,15 @@ A feature-rich full-stack course-selling website using the MERN stack (Node.js, 
 1. The admin side of the course selling app.
 2. Admins can effortlessly log in or register a new account.
 3. All admins have the power to:
-    ✅ CREATE courses
-    ✏️ UPDATE courses
-    ❌ DELETE courses
+    - CREATE course
+    - UPDATE courses
+    - DELETE courses
 
 ## User Dashboard
 1. The user side of the course-selling app
 2. Users can conveniently log in or register a new account.
 3. Users get access to a wide range of courses to explore and learn from.
-4. Users can seamlessly purchase their preferred courses! 💡
+4. Users can seamlessly purchase their preferred courses! 
 
 ## Demo video
 https://youtu.be/7uU38dCcxbs
