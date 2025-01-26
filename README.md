@@ -1,8 +1,7 @@
- 
-![3](https://github.com/Jeysiva-apjs/LearnAcademy/assets/126048586/ed1f579e-2155-4e38-9dd6-b61eeb534b40)
+ ![LearnAcademy](https://github.com/user-attachments/assets/4c2bfdd6-b4f4-41e3-8090-2a8c6276f92c)
 
 <div align="center">
-  <h2>An open-source course-selling app</h2>
+  <h2>A course-selling app</h2>
 </div>
 
 A feature-rich full-stack course-selling website using the MERN stack (Node.js, Express.js, MongoDB, and React).
@@ -108,12 +107,6 @@ Node.js and npm should be installed on your machine.
    ```sh
    npm run dev
    ```
-
-# License
-
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
-
-Happy learning!
 
    
 
