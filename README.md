@@ -1,4 +1,4 @@
- ![LearnAcademy](https://github.com/user-attachments/assets/4c2bfdd6-b4f4-41e3-8090-2a8c6276f92c)
+<img width="845" alt="image" src="https://github.com/user-attachments/assets/85e0e06d-aac7-4796-84ce-87f8edd1743b" />
 
 <div align="center">
   <h2>A course-selling app</h2>
